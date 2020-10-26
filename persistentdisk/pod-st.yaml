@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+        name: pod-st
+spec:
+        containers:
+                - name: pod-st-container
+                  image: nginx
+                  volumeMounts:
+                          - mountPath: /home/disk1/pod-one-space
+                            name: po-vol
+        volumes:
+                - name: po-vol
+                  persistentVolumeClaim:
+                          claimName: pvc-loc 
