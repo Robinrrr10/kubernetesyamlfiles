@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+     name:  tom-hostpath-vol
+spec:
+     containers:
+          - name: tomcat-cont
+            image: tomcat
+            volumeMounts:
+                 - mountPath: /test-hostpath-mnt
+                   name: hostpath-vol
+     volumes:
+          - name: hostpath-vol
+            hostPath:
+                 path: /test-hostpath-mnt          

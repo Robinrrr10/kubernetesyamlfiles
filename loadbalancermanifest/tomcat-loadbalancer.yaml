@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+        name: tomcat-loadbalancer
+        labels:
+                app: tomcat-app
+spec:
+        selector:
+                app: tomcat-app
+        type: LoadBalancer
+        externalIPs:
+                - 192.168.222.55
+        ports:
+                - nodePort: 31002
+                  port: 8080
+                  targetPort: 8080
